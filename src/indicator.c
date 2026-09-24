@@ -82,6 +82,11 @@ static inline void rgb_write(uint8_t r, uint8_t g, uint8_t b)
 void indicator_init(void)
 {
 #ifdef RGB_LED
+#ifdef RGB_LED_POWER
+    gpio_init(RGB_LED_POWER);
+    gpio_set_dir(RGB_LED_POWER, GPIO_OUT);
+    gpio_put(RGB_LED_POWER, 1);
+#endif
     ws2812_program_instructions[0] = (uint16_t)(pio_encode_out(pio_x, 1) |
                                                 pio_encode_sideset(1, 0) |
                                                 pio_encode_delay(WS2812_T3 - 1));

@@ -58,7 +58,8 @@
 
 /* Adafruit QTPY RP2040 */
 #define PRESENCE_BUTTON 6
-#define PRESENCE_LED 5
+#define RGB_LED 12
+#define RGB_LED_POWER 11
 #define FIDELIO_ADC_CHANNELS { 0, 1, 2, 3}
 
 #else
