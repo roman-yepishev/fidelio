@@ -54,6 +54,13 @@
 /* Channel 3 is GPIO29, which this board uses for the presence button. */
 #define FIDELIO_ADC_CHANNELS { 0, 1, 2 }
 
+#elif defined(FIDELIO_BOARD_ADAFRUIT_QTPY_RP2040)
+
+/* Adafruit QTPY RP2040 */
+#define PRESENCE_BUTTON 6
+#define PRESENCE_LED 5
+#define FIDELIO_ADC_CHANNELS { 0, 1, 2, 3}
+
 #else
 
 #error "No board selected: define one of FIDELIO_BOARD_PICO, FIDELIO_BOARD_RP2040_ZERO. Configure with -DBOARD=pico or -DBOARD=rp2040-zero; see the 'Supported boards' section of the README."

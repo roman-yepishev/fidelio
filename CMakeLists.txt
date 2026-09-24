@@ -2,13 +2,15 @@ cmake_minimum_required(VERSION 3.31)
 
 # Target board selection. Adding a board means adding a branch here and a
 # matching block in src/pins.h.
-set(BOARD "pico" CACHE STRING "Target board: pico | rp2040-zero")
+set(BOARD "pico" CACHE STRING "Target board: pico | rp2040-zero | adafruit-qtpy-rp2040")
 set_property(CACHE BOARD PROPERTY STRINGS pico rp2040-zero)
 
 if(BOARD STREQUAL "pico")
     set(FIDELIO_BOARD_DEFINE FIDELIO_BOARD_PICO)
 elseif(BOARD STREQUAL "rp2040-zero")
     set(FIDELIO_BOARD_DEFINE FIDELIO_BOARD_RP2040_ZERO)
+elseif(BOARD STREQUAL "adafruit-qtpy-rp2040")
+    set(FIDELIO_BOARD_DEFINE FIDELIO_BOARD_ADAFRUIT_QTPY_RP2040)
 else()
     message(FATAL_ERROR
         "Unknown BOARD '${BOARD}'. Supported values: pico, rp2040-zero.")
